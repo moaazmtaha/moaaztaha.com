@@ -26,7 +26,7 @@ npm test
 npm audit --omit=dev --audit-level=high
 ```
 
-The test build checks the rendered homepage, About page, research archive,
+The test build checks the rendered pages, machine-readable identity contract,
 metadata, security headers and 404 response. GitHub Actions runs the same
 checks for each push and pull request.
 
@@ -35,6 +35,9 @@ checks for each push and pull request.
 - [`/`](https://moaaztaha.com/) — work, selected research and earlier roles
 - [`/about`](https://moaaztaha.com/about) — interests, milestones and contact
 - [`/research`](https://moaaztaha.com/research) — five CVEs with vendor, NVD and Exploit-DB sources
+- [`/identity.json`](https://moaaztaha.com/identity.json) — structured public identity record
+- [`/moaaz-taha.vcf`](https://moaaztaha.com/moaaz-taha.vcf) — downloadable contact card
+- [`/.well-known/webfinger`](https://moaaztaha.com/.well-known/webfinger?resource=acct%3Amoaaz%40moaaztaha.com) — canonical mailbox-to-profile discovery
 - [`/.well-known/security.txt`](https://moaaztaha.com/.well-known/security.txt) — security contact
 
 Claims on the site are limited to material that can be tied to a named public
