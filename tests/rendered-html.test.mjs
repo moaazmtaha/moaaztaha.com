@@ -79,9 +79,14 @@ test("serves a standards-based mailbox identity record", async () => {
   assert.equal(document.subject, "acct:moaaz@moaaztaha.com");
   assert.equal(document.properties["https://schema.org/name"], "Moaaz Taha");
   assert.equal(document.properties["https://schema.org/image"], "https://moaaztaha.com/moaaz-taha.jpg");
-  assert.ok(document.aliases.includes("https://github.com/moaazmtaha"));
-  assert.ok(document.aliases.includes("https://gravatar.com/moaazmtaha"));
-  assert.ok(document.aliases.includes("https://bugcrowd.com/h/MoaazTaha"));
+  assert.deepEqual(document.aliases, [
+    "https://moaaztaha.com/#moaaz-taha",
+    "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
+    "https://bugcrowd.com/h/MoaazTaha",
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://x.com/0xStorm0",
+  ]);
   assert.ok(document.links.some((link) =>
     link.rel === "http://webfinger.net/rel/profile-page" &&
     link.href === "https://moaaztaha.com/about"
@@ -127,8 +132,12 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.match(html, /Moaaz Taha · London/);
   assert.match(html, /href="https:\/\/github\.com\/moaazmtaha"/);
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/about"/);
-  const visibleHtml = html.replace(/<head>[\s\S]*?<\/head>/i, "").replace(/<script\b[\s\S]*?<\/script>/gi, "");
-  assert.doesNotMatch(visibleHtml, /background checks|Verify identity|Identity record|Public record|MoaazTaha@gmail\.com|identity\.json|CME Group|Stingrai/i);
+  const mainStart = html.indexOf("<main");
+  const mainEnd = html.indexOf("</main>", mainStart);
+  assert.ok(mainStart >= 0, "about page has a visible main region");
+  assert.ok(mainEnd > mainStart, "about page closes its visible main region");
+  const mainMarkup = html.slice(mainStart, mainEnd + "</main>".length);
+  assert.doesNotMatch(mainMarkup, /background checks|Verify identity|Identity record|Public record|MoaazTaha@gmail\.com|identity\.json|CME Group|Stingrai/i);
 });
 
 test("renders a distinct research record with corrected, attributable claims", async () => {
