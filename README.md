@@ -3,6 +3,8 @@
 Source for [moaaztaha.com](https://moaaztaha.com), the professional site of
 security engineer Moaaz Taha.
 
+Contact: [moaaz@moaaztaha.com](mailto:moaaz@moaaztaha.com)
+
 The site is deliberately small: three editorial pages, no CMS, no database,
 no analytics and no client-side form. It publishes a concise biography,
 selected public work and a source-linked archive of five CVEs.
