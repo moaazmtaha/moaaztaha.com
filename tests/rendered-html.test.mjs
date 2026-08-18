@@ -31,6 +31,13 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /https:\/\/schema\.org/);
   assert.match(html, /ProfilePage/);
+  const profileMarkup = html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/);
+  assert.ok(profileMarkup, "profile JSON-LD is present");
+  const profileDocument = JSON.parse(profileMarkup[1]);
+  assert.match(profileDocument.dateCreated, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/);
+  assert.match(profileDocument.dateModified, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/);
+  assert.ok(Number.isFinite(Date.parse(profileDocument.dateCreated)));
+  assert.ok(Number.isFinite(Date.parse(profileDocument.dateModified)));
   assert.match(html, /EducationalOccupationalCredential/);
   assert.match(html, /https:\/\/moaaztaha\.com\/moaaz-taha\.jpg/);
   assert.match(html, /rel="alternate" type="application\/json" href="\/identity\.json"/);

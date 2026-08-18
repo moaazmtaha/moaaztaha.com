@@ -78,8 +78,8 @@ export default function Home() {
     "@id": "https://moaaztaha.com/#profile-page",
     url: "https://moaaztaha.com/",
     name: "Moaaz Taha — Red Team Operator and Security Researcher",
-    dateCreated: "2026-08-17",
-    dateModified: "2026-08-18",
+    dateCreated: "2026-08-17T23:15:52+01:00",
+    dateModified: "2026-08-18T13:10:37+01:00",
     mainEntity: person,
   };
 
