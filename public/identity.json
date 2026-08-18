@@ -8,7 +8,13 @@
   "email_addresses": ["moaaz@moaaztaha.com", "MoaazTaha@gmail.com"],
   "location": "London, United Kingdom",
   "role": "Senior Cyber Security Engineer, Threat Simulation",
-  "aliases": ["0xStorm", "0xStorm0", "Moaaz_Taha", "MoaazTaha", "n0lsec"],
+  "aliases": ["0xStorm", "0xStorm0", "Moaaz_Taha", "n0lsec"],
+  "scoped_account_handles": {
+    "Bugcrowd": "MoaazTaha",
+    "GitHub": "moaazmtaha",
+    "Gravatar": "moaazmtaha",
+    "X": "0xStorm0"
+  },
   "same_as": [
     "https://www.linkedin.com/in/moaaz-taha/",
     "https://github.com/moaazmtaha",

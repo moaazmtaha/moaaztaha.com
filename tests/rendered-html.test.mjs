@@ -39,6 +39,19 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(profileDocument.dateModified, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/);
   assert.ok(Number.isFinite(Date.parse(profileDocument.dateCreated)));
   assert.ok(Number.isFinite(Date.parse(profileDocument.dateModified)));
+  assert.equal(profileDocument.mainEntity.givenName, "Moaaz");
+  assert.equal(profileDocument.mainEntity.additionalName, "Mohamed Ahmed");
+  assert.equal(profileDocument.mainEntity.familyName, "Taha");
+  assert.equal(profileDocument.mainEntity.identifier, "moaaztaha.com/#moaaz-taha");
+  assert.match(profileDocument.mainEntity.disambiguatingDescription, /London-based security engineer/);
+  assert.deepEqual(profileDocument.mainEntity.alternateName, [
+    "Moaaz Mohamed Ahmed Taha",
+    "0xStorm",
+    "0xStorm0",
+    "Moaaz_Taha",
+    "n0lsec",
+  ]);
+  assert.equal(profileDocument.mainEntity.alumniOf.name, "Alexandria University");
   assert.deepEqual(profileDocument.mainEntity.email, [
     "mailto:moaaz@moaaztaha.com",
     "mailto:MoaazTaha@gmail.com",
@@ -149,6 +162,13 @@ test("keeps the static identity graph aligned with WebFinger", async () => {
   assert.equal(identity.canonical_email, "moaaz@moaaztaha.com");
   assert.deepEqual(identity.historical_email_addresses, ["MoaazTaha@gmail.com"]);
   assert.deepEqual(identity.email_addresses, ["moaaz@moaaztaha.com", "MoaazTaha@gmail.com"]);
+  assert.deepEqual(identity.aliases, ["0xStorm", "0xStorm0", "Moaaz_Taha", "n0lsec"]);
+  assert.deepEqual(identity.scoped_account_handles, {
+    Bugcrowd: "MoaazTaha",
+    GitHub: "moaazmtaha",
+    Gravatar: "moaazmtaha",
+    X: "0xStorm0",
+  });
   assert.deepEqual(identity.same_as, [
     "https://www.linkedin.com/in/moaaz-taha/",
     "https://github.com/moaazmtaha",

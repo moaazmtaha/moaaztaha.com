@@ -20,7 +20,12 @@ export default function Home() {
     "@type": "Person",
     "@id": "https://moaaztaha.com/#moaaz-taha",
     name: "Moaaz Taha",
-    alternateName: ["Moaaz Mohamed Ahmed Taha", "0xStorm", "0xStorm0", "Moaaz_Taha", "MoaazTaha", "n0lsec"],
+    givenName: "Moaaz",
+    additionalName: "Mohamed Ahmed",
+    familyName: "Taha",
+    alternateName: ["Moaaz Mohamed Ahmed Taha", "0xStorm", "0xStorm0", "Moaaz_Taha", "n0lsec"],
+    identifier: "moaaztaha.com/#moaaz-taha",
+    disambiguatingDescription: "London-based security engineer focused on red teaming, adversary emulation, threat simulation and vulnerability research.",
     url: "https://moaaztaha.com/",
     image: {
       "@type": "ImageObject",
@@ -36,6 +41,7 @@ export default function Home() {
     },
     jobTitle: "Senior Cyber Security Engineer, Threat Simulation",
     homeLocation: { "@type": "Place", name: "London, United Kingdom" },
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Alexandria University" },
     sameAs: [
       "https://www.linkedin.com/in/moaaz-taha/",
       "https://github.com/moaazmtaha",
@@ -79,7 +85,7 @@ export default function Home() {
     url: "https://moaaztaha.com/",
     name: "Moaaz Taha — Red Team Operator and Security Researcher",
     dateCreated: "2026-08-17T23:15:52+01:00",
-    dateModified: "2026-08-18T15:40:00+01:00",
+    dateModified: "2026-08-18T18:05:00+01:00",
     mainEntity: person,
   };
 
