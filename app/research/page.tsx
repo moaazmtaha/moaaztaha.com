@@ -22,8 +22,36 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
+  const researchPageData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://moaaztaha.com/research#page",
+    url: "https://moaaztaha.com/research",
+    name: "Vulnerability research by Moaaz Taha",
+    description: "Five source-linked CVE records by Moaaz Taha, previously published as 0xStorm.",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: researchRecords.length,
+      itemListElement: researchRecords.map((record, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          "@id": `https://moaaztaha.com/research#${record.id.toLowerCase()}`,
+          name: `${record.id}: ${record.title}`,
+          identifier: record.id,
+          url: `https://moaaztaha.com/research#${record.id.toLowerCase()}`,
+          author: { "@id": "https://moaaztaha.com/#moaaz-taha" },
+          sameAs: record.nvd,
+          citation: [record.nvd, record.evidence],
+        },
+      })),
+    },
+  };
+
   return (
     <main className="page interiorPage researchPage" id="main-content">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(researchPageData) }} />
       <a className="backLink" href="/">← Back to moaaztaha.com</a>
       <h1>Public research</h1>
       <p className="pageIntro">
@@ -33,7 +61,7 @@ export default function ResearchPage() {
 
       <div className="researchRecords">
         {researchRecords.map((record) => (
-          <article className="researchRecord" key={record.id}>
+          <article className="researchRecord" id={record.id.toLowerCase()} key={record.id}>
             <p className="recordMeta">{record.year} · vulnerability record</p>
             <h2>{record.id}</h2>
             <h3>{record.title}</h3>

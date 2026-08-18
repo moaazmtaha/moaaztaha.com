@@ -60,6 +60,8 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /About Moaaz Taha/);
+  assert.match(html, /"@type":"AboutPage"/);
+  assert.match(html, /https:\/\/moaaztaha\.com\/#moaaz-taha/);
   assert.match(html, /The problems I like working on/);
   assert.match(html, /Selected milestones/);
   assert.match(html, /Five published CVE records/);
@@ -79,6 +81,9 @@ test("renders a distinct research record with corrected, attributable claims", a
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Vulnerability research by Moaaz Taha/);
+  assert.match(html, /"@type":"CollectionPage"/);
+  assert.match(html, /"@type":"ItemList"/);
+  assert.match(html, /"numberOfItems":5/);
   assert.match(html, /CVE-2020-24862/);
   assert.match(html, /Pharmacy Medical Store and Sale Point/);
   assert.match(html, /Exploit-DB 48752/);
@@ -86,6 +91,7 @@ test("renders a distinct research record with corrected, attributable claims", a
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/research"/);
   assert.match(html, /property="og:image" content="https:\/\/moaaztaha\.com\/research-card\.png"/);
   assert.match(html, /name="twitter:image" content="https:\/\/moaaztaha\.com\/research-card\.png"/);
+  assert.match(html, /id="cve-2021-32076"/);
 });
 
 test("returns a useful, non-indexable page for an unknown route", async () => {

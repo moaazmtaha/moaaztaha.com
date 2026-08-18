@@ -9,8 +9,18 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const aboutPageData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": "https://moaaztaha.com/about#page",
+    url: "https://moaaztaha.com/about",
+    name: "About Moaaz Taha",
+    mainEntity: { "@id": "https://moaaztaha.com/#moaaz-taha" },
+  };
+
   return (
     <main className="page interiorPage aboutPage" id="main-content">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageData) }} />
       <a className="backLink" href="/">← Back to moaaztaha.com</a>
       <h1>About</h1>
       <p className="pageIntro">
