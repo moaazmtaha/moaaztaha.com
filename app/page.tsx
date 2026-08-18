@@ -10,7 +10,7 @@ const credentials = [
   ["OSCP", "https://www.credly.com/badges/a39ab616-aef7-4107-ace5-fb98ff190a1c"],
   ["OSWP", "https://www.credly.com/badges/a6fa1744-53e9-48d5-8f9c-cd7f4ec57981"],
   ["CREST CRT", null],
-  ["CRTO", null],
+  ["CRTO", "https://eu.badgr.com/public/assertions/7-dkywJ0RdCjE1A5ZTYGsg"],
   ["eWPTX", null],
 ] as const;
 
