@@ -33,10 +33,13 @@ const webFingerDocument = {
   subject: canonicalWebFingerSubject,
   aliases: [
     "https://moaaztaha.com/#moaaz-taha",
+    "https://www.linkedin.com/in/moaaz-taha/",
     "https://github.com/moaazmtaha",
     "https://gravatar.com/moaazmtaha",
     "https://bugcrowd.com/h/MoaazTaha",
-    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
     "https://x.com/0xStorm0",
   ],
   properties: {
@@ -64,6 +67,9 @@ const webFingerDocument = {
     { rel: "me", href: "https://gravatar.com/moaazmtaha" },
     { rel: "me", href: "https://bugcrowd.com/h/MoaazTaha" },
     { rel: "me", href: "https://www.linkedin.com/in/moaaz-taha/" },
+    { rel: "me", href: "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f" },
+    { rel: "me", href: "https://www.credly.com/users/moaaz-taha/badges/credly" },
+    { rel: "me", href: "https://certs.ine.com/profile/moaaztaha490182/wallet/" },
     { rel: "me", href: "https://x.com/0xStorm0" },
   ],
 };

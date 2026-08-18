@@ -81,10 +81,23 @@ test("serves a standards-based mailbox identity record", async () => {
   assert.equal(document.properties["https://schema.org/image"], "https://moaaztaha.com/moaaz-taha.jpg");
   assert.deepEqual(document.aliases, [
     "https://moaaztaha.com/#moaaz-taha",
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
+    "https://bugcrowd.com/h/MoaazTaha",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
+    "https://x.com/0xStorm0",
+  ]);
+  assert.deepEqual(document.links.filter((link) => link.rel === "me").map((link) => link.href), [
     "https://github.com/moaazmtaha",
     "https://gravatar.com/moaazmtaha",
     "https://bugcrowd.com/h/MoaazTaha",
     "https://www.linkedin.com/in/moaaz-taha/",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
     "https://x.com/0xStorm0",
   ]);
   assert.ok(document.links.some((link) =>
