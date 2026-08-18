@@ -14,6 +14,21 @@ const credentials = [
   ["eWPTX", "https://certs.ine.com/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff"],
 ] as const;
 
+const tools = [
+  {
+    name: "attack-path-review",
+    url: "https://github.com/moaazmtaha/attack-path-review",
+    description: "Use it when a review has established the trust relationships but the remediation order is still arguable. It enumerates bounded routes, measures shared choke points, computes a minimum edge cut and reruns the model with each edge removed.",
+    output: "Offline · JSON, HTML, DOT and SARIF",
+  },
+  {
+    name: "threat-sim-preflight",
+    url: "https://github.com/moaazmtaha/threat-sim-preflight",
+    description: "A guardrail for the work before a simulation begins. It checks the approved window, scope, dependencies, stop and cleanup steps, telemetry freshness and detection ownership; a local ATT&CK STIX bundle can verify technique IDs.",
+    output: "Offline · TOML or JSON plans · SARIF",
+  },
+] as const;
+
 export default function Home() {
   const person = {
     "@context": "https://schema.org",
@@ -58,7 +73,7 @@ export default function Home() {
       credentialCategory: "Professional certification",
       url,
     }] : []),
-    knowsAbout: ["Red teaming", "Adversary emulation", "Threat simulation", "Penetration testing", "Vulnerability research"],
+    knowsAbout: ["Red teaming", "Adversary emulation", "Threat simulation", "Attack-path analysis", "Security validation", "Penetration testing", "Vulnerability research"],
     subjectOf: [
       {
         "@type": "CreativeWork",
@@ -85,8 +100,17 @@ export default function Home() {
     url: "https://moaaztaha.com/",
     name: "Moaaz Taha — Red Team Operator and Security Researcher",
     dateCreated: "2026-08-17T23:15:52+01:00",
-    dateModified: "2026-08-18T17:39:57+01:00",
+    dateModified: "2026-08-18T20:45:00+01:00",
     mainEntity: person,
+    hasPart: tools.map((tool) => ({
+      "@type": "SoftwareSourceCode",
+      name: tool.name,
+      description: tool.description,
+      codeRepository: tool.url,
+      programmingLanguage: "Python",
+      license: "https://opensource.org/license/mit",
+      author: { "@id": "https://moaaztaha.com/#moaaz-taha" },
+    })),
   };
 
   return (
@@ -96,6 +120,7 @@ export default function Home() {
         <a className="siteName" href="/">Moaaz Taha</a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
+          <a href="#tools">Tools</a>
           <a href="/research">Research</a>
           <a href="/about">About</a>
         </nav>
@@ -154,8 +179,24 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section" id="tools" aria-labelledby="tools-title">
+          <div className="sectionHeading"><p>02</p><h2 id="tools-title">Tools</h2></div>
+          <div className="sectionBody toolList">
+            {tools.map((tool) => (
+              <article className="tool" key={tool.name}>
+                <div className="toolHeading">
+                  <h3><a href={tool.url}>{tool.name}</a></h3>
+                  <p>{tool.output}</p>
+                </div>
+                <p>{tool.description}</p>
+                <p className="recordLinks"><a href={tool.url}>Source, tests and examples</a></p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section" id="public-work" aria-labelledby="public-work-title">
-          <div className="sectionHeading"><p>02</p><h2 id="public-work-title">Selected public work</h2></div>
+          <div className="sectionHeading"><p>03</p><h2 id="public-work-title">Selected public work</h2></div>
           <div className="sectionBody">
             <article className="selectedWork">
               <p className="recordMeta">SolarWinds Web Help Desk · 2021</p>
@@ -188,7 +229,7 @@ export default function Home() {
         </section>
 
         <section className="section" id="background" aria-labelledby="background-title">
-          <div className="sectionHeading"><p>03</p><h2 id="background-title">Background</h2></div>
+          <div className="sectionHeading"><p>04</p><h2 id="background-title">Background</h2></div>
           <div className="sectionBody">
             <h3>Earlier roles</h3>
             <div className="roleList">

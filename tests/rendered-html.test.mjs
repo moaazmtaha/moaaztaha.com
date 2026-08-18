@@ -66,6 +66,25 @@ test("renders the public profile with attributable evidence", async () => {
     "https://certs.ine.com/profile/moaaztaha490182/wallet/",
     "https://x.com/0xStorm0",
   ]);
+  assert.deepEqual(profileDocument.hasPart.map((project) => ({
+    type: project["@type"],
+    name: project.name,
+    repository: project.codeRepository,
+    language: project.programmingLanguage,
+  })), [
+    {
+      type: "SoftwareSourceCode",
+      name: "attack-path-review",
+      repository: "https://github.com/moaazmtaha/attack-path-review",
+      language: "Python",
+    },
+    {
+      type: "SoftwareSourceCode",
+      name: "threat-sim-preflight",
+      repository: "https://github.com/moaazmtaha/threat-sim-preflight",
+      language: "Python",
+    },
+  ]);
   assert.match(html, /EducationalOccupationalCredential/);
   assert.match(html, /https:\/\/moaaztaha\.com\/moaaz-taha\.jpg/);
   assert.match(html, /rel="alternate" type="application\/json" href="\/identity\.json"/);
@@ -92,6 +111,11 @@ test("renders the public profile with attributable evidence", async () => {
     "https://x.com/0xStorm0",
   ]);
   assert.match(html, /A trust decision hidden in a referrer header/);
+  assert.match(html, /href="#tools"/);
+  assert.match(html, /https:\/\/github\.com\/moaazmtaha\/attack-path-review/);
+  assert.match(html, /https:\/\/github\.com\/moaazmtaha\/threat-sim-preflight/);
+  assert.match(html, /minimum edge cut/);
+  assert.match(html, /telemetry freshness and detection ownership/);
   assert.match(html, /Red team operations/);
   assert.match(html, /Google and Esri also record acknowledgements/);
   assert.match(html, /https:\/\/trust\.arcgis\.com\/en\/security-concern\//);
