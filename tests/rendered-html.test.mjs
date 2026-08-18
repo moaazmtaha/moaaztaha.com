@@ -39,6 +39,16 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(profileDocument.dateModified, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/);
   assert.ok(Number.isFinite(Date.parse(profileDocument.dateCreated)));
   assert.ok(Number.isFinite(Date.parse(profileDocument.dateModified)));
+  assert.deepEqual(profileDocument.mainEntity.sameAs, [
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
+    "https://bugcrowd.com/h/MoaazTaha",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
+    "https://x.com/0xStorm0",
+  ]);
   assert.match(html, /EducationalOccupationalCredential/);
   assert.match(html, /https:\/\/moaaztaha\.com\/moaaz-taha\.jpg/);
   assert.match(html, /rel="alternate" type="application\/json" href="\/identity\.json"/);
@@ -53,6 +63,17 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /rel="me" href="https:\/\/gravatar\.com\/moaazmtaha"/);
   assert.match(html, /rel="me" href="https:\/\/bugcrowd\.com\/h\/MoaazTaha"/);
   assert.match(html, /rel="me" href="https:\/\/www\.linkedin\.com\/in\/moaaz-taha\/"/);
+  assert.deepEqual([...html.matchAll(/<link rel="me" href="([^"]+)"\s*\/?>(?:<\/link>)?/g)].map((match) => match[1]), [
+    "mailto:moaaz@moaaztaha.com",
+    "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
+    "https://bugcrowd.com/h/MoaazTaha",
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
+    "https://x.com/0xStorm0",
+  ]);
   assert.match(html, /A trust decision hidden in a referrer header/);
   assert.match(html, /Red team operations/);
   assert.match(html, /Google and Esri also record acknowledgements/);

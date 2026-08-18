@@ -43,7 +43,7 @@ export default function Home() {
       "https://bugcrowd.com/h/MoaazTaha",
       "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
       "https://www.credly.com/users/moaaz-taha/badges/credly",
-      "https://certs.ine.com/profile/moaaztaha490182/wallet",
+      "https://certs.ine.com/profile/moaaztaha490182/wallet/",
       "https://x.com/0xStorm0",
     ],
     hasCredential: credentials.flatMap(([name, url]) => url ? [{
@@ -79,7 +79,7 @@ export default function Home() {
     url: "https://moaaztaha.com/",
     name: "Moaaz Taha — Red Team Operator and Security Researcher",
     dateCreated: "2026-08-17T23:15:52+01:00",
-    dateModified: "2026-08-18T13:10:37+01:00",
+    dateModified: "2026-08-18T15:40:00+01:00",
     mainEntity: person,
   };
 

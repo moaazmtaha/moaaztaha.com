@@ -44,8 +44,9 @@ export default function RootLayout({
         <link rel="me" href="https://gravatar.com/moaazmtaha" />
         <link rel="me" href="https://bugcrowd.com/h/MoaazTaha" />
         <link rel="me" href="https://www.linkedin.com/in/moaaz-taha/" />
-        <link rel="me" href="https://www.credly.com/users/moaaz-taha/badges/credly" />
         <link rel="me" href="https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f" />
+        <link rel="me" href="https://www.credly.com/users/moaaz-taha/badges/credly" />
+        <link rel="me" href="https://certs.ine.com/profile/moaaztaha490182/wallet/" />
         <link rel="me" href="https://x.com/0xStorm0" />
       </head>
       <body>
