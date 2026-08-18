@@ -22,6 +22,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
   assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
+  assert.match(response.headers.get("cache-control") ?? "", /(?:^|,)\s*no-transform\s*(?:,|$)/i);
   const html = await response.text();
   assert.match(html, /Moaaz Taha — Red Team Operator and Security Researcher/);
   assert.match(html, /CVE-2021-32076/);

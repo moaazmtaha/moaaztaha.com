@@ -48,6 +48,13 @@ function withSecurityHeaders(response: Response, request: Request): Response {
     headers.set(name, value);
   }
   headers.set("Content-Security-Policy", contentSecurityPolicy);
+  const contentType = headers.get("Content-Type") ?? "";
+  if (/^text\/html\b/i.test(contentType)) {
+    const cacheControl = headers.get("Cache-Control");
+    if (!/(?:^|,)\s*no-transform\s*(?:,|$)/i.test(cacheControl ?? "")) {
+      headers.set("Cache-Control", [cacheControl, "no-transform"].filter(Boolean).join(", "));
+    }
+  }
   if (isHttps) {
     headers.set("Strict-Transport-Security", "max-age=31536000");
   }
