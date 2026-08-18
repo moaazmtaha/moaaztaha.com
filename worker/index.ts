@@ -34,6 +34,7 @@ const webFingerDocument = {
   aliases: [
     "https://moaaztaha.com/#moaaz-taha",
     "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
     "https://www.linkedin.com/in/moaaz-taha/",
     "https://x.com/0xStorm0",
   ],
@@ -58,6 +59,7 @@ const webFingerDocument = {
       href: "https://moaaztaha.com/moaaz-taha.vcf",
     },
     { rel: "me", href: "https://github.com/moaazmtaha" },
+    { rel: "me", href: "https://gravatar.com/moaazmtaha" },
     { rel: "me", href: "https://www.linkedin.com/in/moaaz-taha/" },
     { rel: "me", href: "https://x.com/0xStorm0" },
   ],

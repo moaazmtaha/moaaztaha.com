@@ -41,6 +41,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /property="og:site_name" content="Moaaz Taha"/);
   assert.match(html, /rel="me" href="mailto:moaaz@moaaztaha\.com"/);
   assert.match(html, /rel="me" href="https:\/\/github\.com\/moaazmtaha"/);
+  assert.match(html, /rel="me" href="https:\/\/gravatar\.com\/moaazmtaha"/);
   assert.match(html, /rel="me" href="https:\/\/www\.linkedin\.com\/in\/moaaz-taha\/"/);
   assert.match(html, /A trust decision hidden in a referrer header/);
   assert.match(html, /Red team operations/);
@@ -67,6 +68,7 @@ test("serves a standards-based mailbox identity record", async () => {
   assert.equal(document.subject, "acct:moaaz@moaaztaha.com");
   assert.equal(document.properties["https://schema.org/name"], "Moaaz Taha");
   assert.ok(document.aliases.includes("https://github.com/moaazmtaha"));
+  assert.ok(document.aliases.includes("https://gravatar.com/moaazmtaha"));
   assert.ok(document.links.some((link) =>
     link.rel === "http://webfinger.net/rel/profile-page" &&
     link.href === "https://moaaztaha.com/about"
@@ -74,6 +76,10 @@ test("serves a standards-based mailbox identity record", async () => {
   assert.ok(document.links.some((link) =>
     link.type === "application/json" &&
     link.href === "https://moaaztaha.com/identity.json"
+  ));
+  assert.ok(document.links.some((link) =>
+    link.rel === "me" &&
+    link.href === "https://gravatar.com/moaazmtaha"
   ));
 });
 

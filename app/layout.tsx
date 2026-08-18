@@ -41,6 +41,7 @@ export default function RootLayout({
         <link rel="alternate" type="application/jrd+json" href="/.well-known/webfinger?resource=acct%3Amoaaz%40moaaztaha.com" title="Moaaz Taha WebFinger identity" />
         <link rel="me" href="mailto:moaaz@moaaztaha.com" />
         <link rel="me" href="https://github.com/moaazmtaha" />
+        <link rel="me" href="https://gravatar.com/moaazmtaha" />
         <link rel="me" href="https://www.linkedin.com/in/moaaz-taha/" />
         <link rel="me" href="https://www.credly.com/users/moaaz-taha/badges/credly" />
         <link rel="me" href="https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f" />
