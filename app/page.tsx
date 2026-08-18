@@ -32,6 +32,7 @@ export default function Home() {
     homeLocation: { "@type": "Place", name: "London, United Kingdom" },
     sameAs: [
       "https://www.linkedin.com/in/moaaz-taha/",
+      "https://github.com/moaazmtaha",
       "https://bugcrowd.com/MoaazTaha",
       "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
       "https://www.credly.com/users/moaaz-taha/badges/credly",
@@ -102,6 +103,8 @@ export default function Home() {
             <a href="mailto:moaaz@moaaztaha.com">moaaz@moaaztaha.com</a>
             <span aria-hidden="true">·</span>
             <a href="https://www.linkedin.com/in/moaaz-taha/" rel="me">LinkedIn</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/moaazmtaha" rel="me">GitHub</a>
             <span aria-hidden="true">·</span>
             <a href="/about">About &amp; contact</a>
           </p>

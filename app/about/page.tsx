@@ -54,7 +54,7 @@ export default function AboutPage() {
       <section className="aboutBlock">
         <h2>Contact</h2>
         <p><a href="mailto:moaaz@moaaztaha.com">moaaz@moaaztaha.com</a></p>
-        <p className="recordLinks"><a href="https://www.linkedin.com/in/moaaz-taha/" rel="me">LinkedIn</a><span aria-hidden="true"> · </span><a href="/moaaz-taha.vcf">Download vCard</a></p>
+        <p className="recordLinks"><a href="https://www.linkedin.com/in/moaaz-taha/" rel="me">LinkedIn</a><span aria-hidden="true"> · </span><a href="https://github.com/moaazmtaha" rel="me">GitHub</a><span aria-hidden="true"> · </span><a href="/moaaz-taha.vcf">Download vCard</a></p>
       </section>
     </main>
   );

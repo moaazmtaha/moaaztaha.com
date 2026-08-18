@@ -35,6 +35,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /name="author" content="Moaaz Taha"/);
   assert.match(html, /property="og:site_name" content="Moaaz Taha"/);
   assert.match(html, /rel="me" href="mailto:moaaz@moaaztaha\.com"/);
+  assert.match(html, /rel="me" href="https:\/\/github\.com\/moaazmtaha"/);
   assert.match(html, /rel="me" href="https:\/\/www\.linkedin\.com\/in\/moaaz-taha\/"/);
   assert.match(html, /A trust decision hidden in a referrer header/);
   assert.match(html, /Red team operations/);
@@ -58,6 +59,7 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.match(html, /Bugcrowd’s Q3 2020 P1 Warriors/);
   assert.match(html, /Esri’s responsible-disclosure programme/);
   assert.match(html, /Read the source-linked research archive/);
+  assert.match(html, /href="https:\/\/github\.com\/moaazmtaha"/);
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/about"/);
   assert.doesNotMatch(html, /background checks|Verify identity|Identity record|Public record|MoaazTaha@gmail\.com|identity\.json|CME Group|Stingrai/i);
 });

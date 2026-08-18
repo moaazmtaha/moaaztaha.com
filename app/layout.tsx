@@ -37,6 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="me" href="mailto:moaaz@moaaztaha.com" />
+        <link rel="me" href="https://github.com/moaazmtaha" />
         <link rel="me" href="https://www.linkedin.com/in/moaaz-taha/" />
         <link rel="me" href="https://www.credly.com/users/moaaz-taha/badges/credly" />
         <link rel="me" href="https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f" />
