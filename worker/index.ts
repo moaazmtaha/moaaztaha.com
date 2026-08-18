@@ -41,6 +41,7 @@ const webFingerDocument = {
   properties: {
     "https://schema.org/name": "Moaaz Taha",
     "https://schema.org/jobTitle": "Senior Cyber Security Engineer, Threat Simulation",
+    "https://schema.org/image": "https://moaaztaha.com/moaaz-taha.jpg",
   },
   links: [
     {

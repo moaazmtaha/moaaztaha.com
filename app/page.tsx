@@ -22,6 +22,12 @@ export default function Home() {
     name: "Moaaz Taha",
     alternateName: ["Moaaz Mohamed Ahmed Taha", "0xStorm", "0xStorm0", "Moaaz_Taha", "MoaazTaha", "n0lsec"],
     url: "https://moaaztaha.com/",
+    image: {
+      "@type": "ImageObject",
+      url: "https://moaaztaha.com/moaaz-taha.jpg",
+      contentUrl: "https://moaaztaha.com/moaaz-taha.jpg",
+      caption: "Moaaz Taha",
+    },
     email: ["mailto:moaaz@moaaztaha.com", "mailto:MoaazTaha@gmail.com"],
     contactPoint: {
       "@type": "ContactPoint",

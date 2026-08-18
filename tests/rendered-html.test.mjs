@@ -32,6 +32,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /https:\/\/schema\.org/);
   assert.match(html, /ProfilePage/);
   assert.match(html, /EducationalOccupationalCredential/);
+  assert.match(html, /https:\/\/moaaztaha\.com\/moaaz-taha\.jpg/);
   assert.match(html, /rel="alternate" type="application\/json" href="\/identity\.json"/);
   assert.match(html, /rel="alternate" type="text\/vcard" href="\/moaaz-taha\.vcf"/);
   assert.match(html, /rel="alternate" type="application\/jrd\+json" href="\/\.well-known\/webfinger\?resource=acct%3Amoaaz%40moaaztaha\.com"/);
@@ -67,6 +68,7 @@ test("serves a standards-based mailbox identity record", async () => {
   const document = await response.json();
   assert.equal(document.subject, "acct:moaaz@moaaztaha.com");
   assert.equal(document.properties["https://schema.org/name"], "Moaaz Taha");
+  assert.equal(document.properties["https://schema.org/image"], "https://moaaztaha.com/moaaz-taha.jpg");
   assert.ok(document.aliases.includes("https://github.com/moaazmtaha"));
   assert.ok(document.aliases.includes("https://gravatar.com/moaazmtaha"));
   assert.ok(document.links.some((link) =>
@@ -106,6 +108,8 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.match(html, /separate issuer records for/);
   assert.match(html, /https:\/\/certs\.ine\.com\/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff/);
   assert.match(html, /Read the source-linked research archive/);
+  assert.match(html, /<img src="\/moaaz-taha\.jpg" alt="Moaaz Taha"/);
+  assert.match(html, /Moaaz Taha · London/);
   assert.match(html, /href="https:\/\/github\.com\/moaazmtaha"/);
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/about"/);
   const visibleHtml = html.replace(/<head>[\s\S]*?<\/head>/i, "").replace(/<script\b[\s\S]*?<\/script>/gi, "");

@@ -76,6 +76,12 @@ footer p { margin: 0; }
 .backLink { font-family: var(--sans); font-size: 13px; }
 .interiorPage h1 { font-size: clamp(42px, 6vw, 64px); margin: 44px 0 24px; }
 .pageIntro { font-size: 21px; }
+.aboutIntro { align-items: end; display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr) 188px; margin-top: 44px; }
+.aboutIntro h1 { margin: 0 0 24px; }
+.aboutIntro .pageIntro { margin: 0; }
+.aboutPortrait { margin: 0; }
+.aboutPortrait img { aspect-ratio: 4 / 5; display: block; height: auto; object-fit: cover; object-position: center 30%; width: 100%; }
+.aboutPortrait figcaption { color: var(--muted); font-family: var(--sans); font-size: 11px; margin-top: 8px; }
 .aboutBlock, .researchNote { border-top: 1px solid var(--rule); margin-top: 56px; padding-top: 30px; }
 .aboutBlock h2, .researchNote h2 { margin-bottom: 20px; }
 .factList { margin: 0; }
@@ -112,6 +118,8 @@ footer p { margin: 0; }
   h1 { font-size: 48px; }
   .introCopy, .section { grid-template-columns: 1fr; }
   .introCopy { gap: 18px; }
+  .aboutIntro { align-items: start; gap: 32px; grid-template-columns: 1fr; }
+  .aboutPortrait { max-width: 220px; }
   .section { gap: 30px; padding: 58px 0; }
   .workList li { grid-template-columns: 42px 1fr; }
   .workList small { display: none; }

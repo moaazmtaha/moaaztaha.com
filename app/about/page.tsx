@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Moaaz Taha",
@@ -16,19 +17,32 @@ export default function AboutPage() {
     url: "https://moaaztaha.com/about",
     name: "About Moaaz Taha",
     mainEntity: { "@id": "https://moaaztaha.com/#moaaz-taha" },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: "https://moaaztaha.com/moaaz-taha.jpg",
+      caption: "Moaaz Taha",
+    },
   };
 
   return (
     <main className="page interiorPage aboutPage" id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageData) }} />
       <a className="backLink" href="/">← Back to moaaztaha.com</a>
-      <h1>About</h1>
-      <p className="pageIntro">
-        I’m a London-based security engineer who has spent more than a decade
-        finding the paths between a plausible foothold and the systems that
-        matter. My work spans red team operations, adversary emulation, threat
-        simulation and vulnerability research.
-      </p>
+      <div className="aboutIntro">
+        <div>
+          <h1>About</h1>
+          <p className="pageIntro">
+            I’m a London-based security engineer who has spent more than a decade
+            finding the paths between a plausible foothold and the systems that
+            matter. My work spans red team operations, adversary emulation, threat
+            simulation and vulnerability research.
+          </p>
+        </div>
+        <figure className="aboutPortrait">
+          <Image src="/moaaz-taha.jpg" alt="Moaaz Taha" width={960} height={960} sizes="(max-width: 720px) 220px, 188px" priority unoptimized />
+          <figcaption>Moaaz Taha · London</figcaption>
+        </figure>
+      </div>
 
       <section className="aboutBlock">
         <h2>The problems I like working on</h2>
