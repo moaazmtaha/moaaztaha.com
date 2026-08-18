@@ -12,8 +12,17 @@
     "https://bugcrowd.com/MoaazTaha",
     "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
     "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet",
     "https://x.com/0xStorm0"
   ],
+  "credential_records": {
+    "GCPN": "https://www.credly.com/badges/3a37553a-294a-4b3e-a30d-bd202dbaf764",
+    "OSEP": "https://www.credly.com/badges/7098119f-fa04-4147-b8be-e01ef3ea6611",
+    "OSCP": "https://www.credly.com/badges/a39ab616-aef7-4107-ace5-fb98ff190a1c",
+    "OSWP": "https://www.credly.com/badges/a6fa1744-53e9-48d5-8f9c-cd7f4ec57981",
+    "CRTO": "https://eu.badgr.com/public/assertions/7-dkywJ0RdCjE1A5ZTYGsg",
+    "eWPTX": "https://certs.ine.com/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff"
+  },
   "research": "https://moaaztaha.com/research",
   "cve_ids": [
     "CVE-2021-32076",

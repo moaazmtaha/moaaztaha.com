@@ -36,8 +36,15 @@ export default function Home() {
       "https://bugcrowd.com/MoaazTaha",
       "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
       "https://www.credly.com/users/moaaz-taha/badges/credly",
+      "https://certs.ine.com/profile/moaaztaha490182/wallet",
       "https://x.com/0xStorm0",
     ],
+    hasCredential: credentials.flatMap(([name, url]) => url ? [{
+      "@type": "EducationalOccupationalCredential",
+      name,
+      credentialCategory: "Professional certification",
+      url,
+    }] : []),
     knowsAbout: ["Red teaming", "Adversary emulation", "Threat simulation", "Penetration testing", "Vulnerability research"],
     subjectOf: [
       {

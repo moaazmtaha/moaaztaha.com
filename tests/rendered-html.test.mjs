@@ -31,6 +31,9 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /https:\/\/schema\.org/);
   assert.match(html, /ProfilePage/);
+  assert.match(html, /EducationalOccupationalCredential/);
+  assert.match(html, /rel="alternate" type="application\/json" href="\/identity\.json"/);
+  assert.match(html, /rel="alternate" type="text\/vcard" href="\/moaaz-taha\.vcf"/);
   assert.match(html, /property="og:image" content="https:\/\/moaaztaha\.com\/og-card\.png"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /name="author" content="Moaaz Taha"/);
@@ -44,6 +47,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /https:\/\/trust\.arcgis\.com\/en\/security-concern\//);
   assert.match(html, /https:\/\/eu\.badgr\.com\/public\/assertions\/7-dkywJ0RdCjE1A5ZTYGsg/);
   assert.match(html, /https:\/\/certs\.ine\.com\/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff/);
+  assert.match(html, /https:\/\/certs\.ine\.com\/profile\/moaaztaha490182\/wallet/);
   assert.match(html, /href="\/research"/);
   assert.match(html, /href="\/about"/);
   assert.match(html, /Skip to content/);
@@ -66,7 +70,8 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.match(html, /Read the source-linked research archive/);
   assert.match(html, /href="https:\/\/github\.com\/moaazmtaha"/);
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/about"/);
-  assert.doesNotMatch(html, /background checks|Verify identity|Identity record|Public record|MoaazTaha@gmail\.com|identity\.json|CME Group|Stingrai/i);
+  const visibleHtml = html.replace(/<head>[\s\S]*?<\/head>/i, "").replace(/<script\b[\s\S]*?<\/script>/gi, "");
+  assert.doesNotMatch(visibleHtml, /background checks|Verify identity|Identity record|Public record|MoaazTaha@gmail\.com|identity\.json|CME Group|Stingrai/i);
 });
 
 test("renders a distinct research record with corrected, attributable claims", async () => {
