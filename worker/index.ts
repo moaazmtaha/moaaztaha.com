@@ -27,9 +27,78 @@ const baseSecurityHeaders = {
   "X-Frame-Options": "DENY",
 };
 
+const canonicalWebFingerSubject = "acct:moaaz@moaaztaha.com";
+
+const webFingerDocument = {
+  subject: canonicalWebFingerSubject,
+  aliases: [
+    "https://moaaztaha.com/#moaaz-taha",
+    "https://github.com/moaazmtaha",
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://x.com/0xStorm0",
+  ],
+  properties: {
+    "https://schema.org/name": "Moaaz Taha",
+    "https://schema.org/jobTitle": "Senior Cyber Security Engineer, Threat Simulation",
+  },
+  links: [
+    {
+      rel: "http://webfinger.net/rel/profile-page",
+      type: "text/html",
+      href: "https://moaaztaha.com/about",
+    },
+    {
+      rel: "alternate",
+      type: "application/json",
+      href: "https://moaaztaha.com/identity.json",
+    },
+    {
+      rel: "alternate",
+      type: "text/vcard",
+      href: "https://moaaztaha.com/moaaz-taha.vcf",
+    },
+    { rel: "me", href: "https://github.com/moaazmtaha" },
+    { rel: "me", href: "https://www.linkedin.com/in/moaaz-taha/" },
+    { rel: "me", href: "https://x.com/0xStorm0" },
+  ],
+};
+
+function webFingerResponse(request: Request, url: URL): Response {
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "public, max-age=3600",
+    "Content-Type": "application/jrd+json; charset=utf-8",
+  };
+
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response(JSON.stringify({ error: "method_not_allowed" }), {
+      status: 405,
+      headers: { ...headers, Allow: "GET, HEAD" },
+    });
+  }
+
+  const resource = url.searchParams.get("resource");
+  if (!resource) {
+    return new Response(JSON.stringify({
+      error: "invalid_request",
+      error_description: "The resource query parameter is required.",
+    }), { status: 400, headers });
+  }
+
+  if (resource.toLowerCase() !== canonicalWebFingerSubject) {
+    return new Response(JSON.stringify({ error: "not_found" }), { status: 404, headers });
+  }
+
+  return new Response(request.method === "HEAD" ? null : JSON.stringify(webFingerDocument), {
+    status: 200,
+    headers,
+  });
+}
+
 function withSecurityHeaders(response: Response, request: Request): Response {
   const headers = new Headers(response.headers);
-  const isHttps = new URL(request.url).protocol === "https:";
+  const requestUrl = new URL(request.url);
+  const isHttps = requestUrl.protocol === "https:";
   const contentSecurityPolicy = [
     "default-src 'self'",
     "base-uri 'none'",
@@ -46,6 +115,9 @@ function withSecurityHeaders(response: Response, request: Request): Response {
 
   for (const [name, value] of Object.entries(baseSecurityHeaders)) {
     headers.set(name, value);
+  }
+  if (requestUrl.pathname === "/.well-known/webfinger") {
+    headers.set("Cross-Origin-Resource-Policy", "cross-origin");
   }
   headers.set("Content-Security-Policy", contentSecurityPolicy);
   const contentType = headers.get("Content-Type") ?? "";
@@ -75,6 +147,10 @@ function withSecurityHeaders(response: Response, request: Request): Response {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/.well-known/webfinger") {
+      return withSecurityHeaders(webFingerResponse(request, url), request);
+    }
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];

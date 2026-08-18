@@ -38,6 +38,7 @@ export default function RootLayout({
       <head>
         <link rel="alternate" type="application/json" href="/identity.json" title="Moaaz Taha identity record" />
         <link rel="alternate" type="text/vcard" href="/moaaz-taha.vcf" title="Moaaz Taha contact card" />
+        <link rel="alternate" type="application/jrd+json" href="/.well-known/webfinger?resource=acct%3Amoaaz%40moaaztaha.com" title="Moaaz Taha WebFinger identity" />
         <link rel="me" href="mailto:moaaz@moaaztaha.com" />
         <link rel="me" href="https://github.com/moaazmtaha" />
         <link rel="me" href="https://www.linkedin.com/in/moaaz-taha/" />

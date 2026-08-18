@@ -34,6 +34,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /EducationalOccupationalCredential/);
   assert.match(html, /rel="alternate" type="application\/json" href="\/identity\.json"/);
   assert.match(html, /rel="alternate" type="text\/vcard" href="\/moaaz-taha\.vcf"/);
+  assert.match(html, /rel="alternate" type="application\/jrd\+json" href="\/\.well-known\/webfinger\?resource=acct%3Amoaaz%40moaaztaha\.com"/);
   assert.match(html, /property="og:image" content="https:\/\/moaaztaha\.com\/og-card\.png"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /name="author" content="Moaaz Taha"/);
@@ -53,6 +54,35 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /Skip to content/);
   assert.doesNotMatch(html, /Verify identity|Identity record|CME Group|Stingrai/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
+});
+
+test("serves a standards-based mailbox identity record", async () => {
+  const response = await render("/.well-known/webfinger?resource=acct%3Amoaaz%40moaaztaha.com");
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^application\/jrd\+json\b/i);
+  assert.equal(response.headers.get("access-control-allow-origin"), "*");
+  assert.equal(response.headers.get("cross-origin-resource-policy"), "cross-origin");
+
+  const document = await response.json();
+  assert.equal(document.subject, "acct:moaaz@moaaztaha.com");
+  assert.equal(document.properties["https://schema.org/name"], "Moaaz Taha");
+  assert.ok(document.aliases.includes("https://github.com/moaazmtaha"));
+  assert.ok(document.links.some((link) =>
+    link.rel === "http://webfinger.net/rel/profile-page" &&
+    link.href === "https://moaaztaha.com/about"
+  ));
+  assert.ok(document.links.some((link) =>
+    link.type === "application/json" &&
+    link.href === "https://moaaztaha.com/identity.json"
+  ));
+});
+
+test("does not enumerate unsupported WebFinger identities", async () => {
+  const missing = await render("/.well-known/webfinger");
+  assert.equal(missing.status, 400);
+
+  const unknown = await render("/.well-known/webfinger?resource=acct%3Aunknown%40moaaztaha.com");
+  assert.equal(unknown.status, 404);
 });
 
 test("renders a restrained, indexable about and contact page", async () => {
