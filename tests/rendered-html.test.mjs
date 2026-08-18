@@ -32,6 +32,10 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /ProfilePage/);
   assert.match(html, /property="og:image" content="https:\/\/moaaztaha\.com\/og-card\.png"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /name="author" content="Moaaz Taha"/);
+  assert.match(html, /property="og:site_name" content="Moaaz Taha"/);
+  assert.match(html, /rel="me" href="mailto:moaaz@moaaztaha\.com"/);
+  assert.match(html, /rel="me" href="https:\/\/www\.linkedin\.com\/in\/moaaz-taha\/"/);
   assert.match(html, /A trust decision hidden in a referrer header/);
   assert.match(html, /Red team operations/);
   assert.match(html, /Google and Esri also record acknowledgements/);
