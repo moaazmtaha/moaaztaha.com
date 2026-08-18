@@ -42,6 +42,7 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /Google and Esri also record acknowledgements/);
   assert.match(html, /https:\/\/trust\.arcgis\.com\/en\/security-concern\//);
   assert.match(html, /https:\/\/eu\.badgr\.com\/public\/assertions\/7-dkywJ0RdCjE1A5ZTYGsg/);
+  assert.match(html, /https:\/\/certs\.ine\.com\/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff/);
   assert.match(html, /href="\/research"/);
   assert.match(html, /href="\/about"/);
   assert.match(html, /Skip to content/);
@@ -59,7 +60,8 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.match(html, /Five published CVE records/);
   assert.match(html, /Bugcrowd’s Q3 2020 P1 Warriors/);
   assert.match(html, /Esri’s responsible-disclosure programme/);
-  assert.match(html, /issuer-hosted CRTO record/);
+  assert.match(html, /separate issuer records for/);
+  assert.match(html, /https:\/\/certs\.ine\.com\/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff/);
   assert.match(html, /Read the source-linked research archive/);
   assert.match(html, /href="https:\/\/github\.com\/moaazmtaha"/);
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/about"/);

@@ -11,7 +11,7 @@ const credentials = [
   ["OSWP", "https://www.credly.com/badges/a6fa1744-53e9-48d5-8f9c-cd7f4ec57981"],
   ["CREST CRT", null],
   ["CRTO", "https://eu.badgr.com/public/assertions/7-dkywJ0RdCjE1A5ZTYGsg"],
-  ["eWPTX", null],
+  ["eWPTX", "https://certs.ine.com/ad4e677f-ccc5-4ab9-b59c-9f923ccc78ff"],
 ] as const;
 
 export default function Home() {
