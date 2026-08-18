@@ -39,6 +39,10 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(profileDocument.dateModified, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/);
   assert.ok(Number.isFinite(Date.parse(profileDocument.dateCreated)));
   assert.ok(Number.isFinite(Date.parse(profileDocument.dateModified)));
+  assert.deepEqual(profileDocument.mainEntity.email, [
+    "mailto:moaaz@moaaztaha.com",
+    "mailto:MoaazTaha@gmail.com",
+  ]);
   assert.deepEqual(profileDocument.mainEntity.sameAs, [
     "https://www.linkedin.com/in/moaaz-taha/",
     "https://github.com/moaazmtaha",
@@ -142,6 +146,9 @@ test("serves a standards-based mailbox identity record", async () => {
 
 test("keeps the static identity graph aligned with WebFinger", async () => {
   const identity = JSON.parse(await readFile(new URL("../public/identity.json", import.meta.url), "utf8"));
+  assert.equal(identity.canonical_email, "moaaz@moaaztaha.com");
+  assert.deepEqual(identity.historical_email_addresses, ["MoaazTaha@gmail.com"]);
+  assert.deepEqual(identity.email_addresses, ["moaaz@moaaztaha.com", "MoaazTaha@gmail.com"]);
   assert.deepEqual(identity.same_as, [
     "https://www.linkedin.com/in/moaaz-taha/",
     "https://github.com/moaazmtaha",
