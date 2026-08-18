@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fbfaf7"/>
+  <text x="78" y="72" fill="#1d211f" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="1.6">MOAAZ TAHA</text>
+  <text x="1122" y="72" fill="#666b67" font-family="Segoe UI, Arial, sans-serif" font-size="16" text-anchor="end">moaaztaha.com</text>
+  <line x1="78" y1="104" x2="1122" y2="104" stroke="#d8d8d1"/>
+  <text x="78" y="304" fill="#1d211f" font-family="Georgia, serif" font-size="92" letter-spacing="-2">Moaaz Taha</text>
+  <text x="82" y="370" fill="#1d211f" font-family="Georgia, serif" font-size="34">Security engineer · Red team operator</text>
+  <text x="82" y="464" fill="#666b67" font-family="Segoe UI, Arial, sans-serif" font-size="23">Adversary emulation · Threat simulation · Vulnerability research</text>
+  <line x1="78" y1="548" x2="1122" y2="548" stroke="#d8d8d1"/>
+  <text x="78" y="586" fill="#666b67" font-family="Segoe UI, Arial, sans-serif" font-size="17">London</text>
+</svg>

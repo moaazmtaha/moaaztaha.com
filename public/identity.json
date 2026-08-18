@@ -1,0 +1,25 @@
+{
+  "name": "Moaaz Taha",
+  "credential_name": "Moaaz Mohamed Ahmed Taha",
+  "canonical_url": "https://moaaztaha.com/",
+  "email_addresses": ["moaaz@moaaztaha.com", "MoaazTaha@gmail.com"],
+  "location": "London, United Kingdom",
+  "role": "Senior Cyber Security Engineer, Threat Simulation",
+  "aliases": ["0xStorm", "0xStorm0", "Moaaz_Taha", "MoaazTaha", "n0lsec"],
+  "same_as": [
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://bugcrowd.com/MoaazTaha",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://x.com/0xStorm0"
+  ],
+  "research": "https://moaaztaha.com/research",
+  "cve_ids": [
+    "CVE-2021-32076",
+    "CVE-2021-34249",
+    "CVE-2020-25905",
+    "CVE-2020-25362",
+    "CVE-2020-24862"
+  ],
+  "last_reviewed": "2026-08-18"
+}
