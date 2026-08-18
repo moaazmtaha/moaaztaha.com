@@ -40,7 +40,7 @@ export default function Home() {
       "https://www.linkedin.com/in/moaaz-taha/",
       "https://github.com/moaazmtaha",
       "https://gravatar.com/moaazmtaha",
-      "https://bugcrowd.com/MoaazTaha",
+      "https://bugcrowd.com/h/MoaazTaha",
       "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
       "https://www.credly.com/users/moaaz-taha/badges/credly",
       "https://certs.ine.com/profile/moaaztaha490182/wallet",
