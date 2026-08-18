@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const buildRoot = new URL("../dist/server/index.js", import.meta.url);
@@ -116,6 +117,20 @@ test("serves a standards-based mailbox identity record", async () => {
     link.rel === "me" &&
     link.href === "https://bugcrowd.com/h/MoaazTaha"
   ));
+});
+
+test("keeps the static identity graph aligned with WebFinger", async () => {
+  const identity = JSON.parse(await readFile(new URL("../public/identity.json", import.meta.url), "utf8"));
+  assert.deepEqual(identity.same_as, [
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
+    "https://bugcrowd.com/h/MoaazTaha",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
+    "https://x.com/0xStorm0",
+  ]);
 });
 
 test("does not enumerate unsupported WebFinger identities", async () => {
