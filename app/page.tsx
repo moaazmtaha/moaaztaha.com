@@ -49,6 +49,11 @@ export default function Home() {
         name: "Bugcrowd P1 Warriors for Q3 2020",
         url: "https://www.bugcrowd.com/blog/announcing-our-p1-warriors-for-q3-2020/",
       },
+      {
+        "@type": "CreativeWork",
+        name: "Esri responsible-disclosure acknowledgement",
+        url: "https://trust.arcgis.com/en/security-concern/",
+      },
     ],
   };
 
@@ -147,8 +152,8 @@ export default function Home() {
             <div className="workNotes">
               <article className="workNote">
                 <h3>Critical finding recognition</h3>
-                <p>Bugcrowd included me in its Q3 2020 P1 Warriors list. Google’s Bug Hunters programme records a separate acknowledgement.</p>
-                <p className="recordLinks"><a href="https://www.bugcrowd.com/blog/announcing-our-p1-warriors-for-q3-2020/">Bugcrowd</a><span aria-hidden="true"> · </span><a href="https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f">Google Bug Hunters</a></p>
+                <p>Bugcrowd included me in its Q3 2020 P1 Warriors list. Google and Esri also record acknowledgements through their public security programmes.</p>
+                <p className="recordLinks"><a href="https://www.bugcrowd.com/blog/announcing-our-p1-warriors-for-q3-2020/">Bugcrowd</a><span aria-hidden="true"> · </span><a href="https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f">Google Bug Hunters</a><span aria-hidden="true"> · </span><a href="https://trust.arcgis.com/en/security-concern/">Esri</a></p>
               </article>
               <article className="workNote">
                 <h3>Research archive</h3>

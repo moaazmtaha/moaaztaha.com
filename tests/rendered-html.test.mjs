@@ -34,6 +34,8 @@ test("renders the public profile with attributable evidence", async () => {
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /A trust decision hidden in a referrer header/);
   assert.match(html, /Red team operations/);
+  assert.match(html, /Google and Esri also record acknowledgements/);
+  assert.match(html, /https:\/\/trust\.arcgis\.com\/en\/security-concern\//);
   assert.match(html, /href="\/research"/);
   assert.match(html, /href="\/about"/);
   assert.match(html, /Skip to content/);
@@ -50,6 +52,7 @@ test("renders a restrained, indexable about and contact page", async () => {
   assert.match(html, /Selected milestones/);
   assert.match(html, /Five published CVE records/);
   assert.match(html, /Bugcrowd’s Q3 2020 P1 Warriors/);
+  assert.match(html, /Esri’s responsible-disclosure programme/);
   assert.match(html, /Read the source-linked research archive/);
   assert.match(html, /rel="canonical" href="https:\/\/moaaztaha\.com\/about"/);
   assert.doesNotMatch(html, /background checks|Verify identity|Identity record|Public record|MoaazTaha@gmail\.com|identity\.json|CME Group|Stingrai/i);

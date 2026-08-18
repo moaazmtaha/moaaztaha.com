@@ -45,6 +45,7 @@ export default function AboutPage() {
           <li>Five published CVE records, including a <a href="https://www.solarwinds.com/trust-center/security-advisories/cve-2021-32076">SolarWinds Web Help Desk access-control bypass</a>.</li>
           <li>Named in <a href="https://www.bugcrowd.com/blog/announcing-our-p1-warriors-for-q3-2020/">Bugcrowd’s Q3 2020 P1 Warriors</a> for a critical submission.</li>
           <li>Acknowledged through the <a href="https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f" rel="me">Google Bug Hunters programme</a>.</li>
+          <li>Named by <a href="https://trust.arcgis.com/en/security-concern/">Esri’s responsible-disclosure programme</a> among its participating security researchers.</li>
           <li>Credentials including GCPN, OSEP, OSCP and OSWP, with <a href="https://www.credly.com/users/moaaz-taha/badges/credly" rel="me">issuer-hosted records</a>.</li>
         </ul>
         <p className="recordLinks"><a href="/research">Read the source-linked research archive</a></p>
