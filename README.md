@@ -38,5 +38,5 @@ checks for each push and pull request.
 - [`/.well-known/security.txt`](https://moaaztaha.com/.well-known/security.txt) — security contact
 
 Claims on the site are limited to material that can be tied to a named public
-source. The design uses system fonts and typeset assets; it contains no stock
-cybersecurity imagery or generated portraits.
+source. The design is text-led, uses system fonts and has no third-party
+runtime dependencies.
