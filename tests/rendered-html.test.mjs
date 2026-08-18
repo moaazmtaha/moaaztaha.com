@@ -159,6 +159,22 @@ test("keeps the static identity graph aligned with WebFinger", async () => {
     "https://certs.ine.com/profile/moaaztaha490182/wallet/",
     "https://x.com/0xStorm0",
   ]);
+  assert.deepEqual(identity.maintained_profiles, [
+    "https://github.com/moaazmtaha",
+    "https://gravatar.com/moaazmtaha",
+  ]);
+  assert.deepEqual(identity.legacy_evidence_profiles, [
+    "https://www.linkedin.com/in/moaaz-taha/",
+    "https://bugcrowd.com/h/MoaazTaha",
+    "https://bughunter.withgoogle.com/profile/ee24e782-6d7f-49c1-a619-6cc8cc016a8f",
+    "https://www.credly.com/users/moaaz-taha/badges/credly",
+    "https://certs.ine.com/profile/moaaztaha490182/wallet/",
+    "https://x.com/0xStorm0",
+  ]);
+  assert.deepEqual(
+    [...identity.maintained_profiles, ...identity.legacy_evidence_profiles].sort(),
+    [...identity.same_as].sort(),
+  );
 });
 
 test("does not enumerate unsupported WebFinger identities", async () => {
