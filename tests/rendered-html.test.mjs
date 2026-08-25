@@ -26,6 +26,29 @@ test("redirects the www hostname to the canonical origin", async () => {
   assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
 });
 
+test("isolates the MTA-STS hostname from the public identity site", async () => {
+  const policy = await request("https://mta-sts.moaaztaha.com/.well-known/mta-sts.txt");
+  assert.equal(policy.status, 200);
+  const policyText = await policy.text();
+  assert.match(policyText, /^version: STSv1$/m);
+  assert.equal(
+    policyText,
+    await readFile(new URL("../public/.well-known/mta-sts.txt", import.meta.url), "utf8"),
+  );
+  assert.match(policy.headers.get("content-type") ?? "", /^text\/plain\b/i);
+  assert.equal(policy.headers.get("x-robots-tag"), "noindex, nofollow, nosnippet");
+
+  const robots = await request("https://mta-sts.moaaztaha.com/robots.txt");
+  assert.equal(robots.status, 200);
+  assert.equal(await robots.text(), "User-agent: *\nDisallow: /\n");
+  assert.equal(robots.headers.get("x-robots-tag"), "noindex, nofollow, nosnippet");
+
+  const duplicateIdentity = await request("https://mta-sts.moaaztaha.com/identity.json");
+  assert.equal(duplicateIdentity.status, 404);
+  assert.equal(duplicateIdentity.headers.get("x-robots-tag"), "noindex, nofollow, nosnippet");
+  assert.equal(duplicateIdentity.headers.get("strict-transport-security"), "max-age=31536000");
+});
+
 test("renders the public profile with attributable evidence", async () => {
   const response = await render("/");
   assert.equal(response.status, 200);
