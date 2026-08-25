@@ -28,6 +28,7 @@ const baseSecurityHeaders = {
 };
 
 const canonicalWebFingerSubject = "acct:moaaz@moaaztaha.com";
+const canonicalHostname = "moaaztaha.com";
 
 const webFingerDocument = {
   subject: canonicalWebFingerSubject,
@@ -158,6 +159,12 @@ function withSecurityHeaders(response: Response, request: Request): Response {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.hostname === `www.${canonicalHostname}`) {
+      url.hostname = canonicalHostname;
+      url.protocol = "https:";
+      return withSecurityHeaders(Response.redirect(url.toString(), 308), request);
+    }
 
     if (url.pathname === "/.well-known/webfinger") {
       return withSecurityHeaders(webFingerResponse(request, url), request);

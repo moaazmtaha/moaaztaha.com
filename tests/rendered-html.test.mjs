@@ -4,16 +4,27 @@ import test from "node:test";
 
 const buildRoot = new URL("../dist/server/index.js", import.meta.url);
 
-async function render(pathname) {
+async function request(url) {
   const workerUrl = new URL(buildRoot);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${url}`);
   const { default: worker } = await import(workerUrl.href);
   return worker.fetch(
-    new Request(`https://moaaztaha.com${pathname}`, { headers: { accept: "text/html" } }),
+    new Request(url, { headers: { accept: "text/html" } }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
     { waitUntil() {}, passThroughOnException() {} },
   );
 }
+
+async function render(pathname) {
+  return request(`https://moaaztaha.com${pathname}`);
+}
+
+test("redirects the www hostname to the canonical origin", async () => {
+  const response = await request("https://www.moaaztaha.com/about?source=www");
+  assert.equal(response.status, 308);
+  assert.equal(response.headers.get("location"), "https://moaaztaha.com/about?source=www");
+  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
+});
 
 test("renders the public profile with attributable evidence", async () => {
   const response = await render("/");
